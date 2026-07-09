@@ -72,7 +72,7 @@ export function InsightChart() {
                       color: m.color,
                     }
                   : {
-                      background: "transparent",
+                      background: "rgba(255,255,255,0)",
                       borderColor: "var(--border)",
                       color: "var(--text-tertiary)",
                     }

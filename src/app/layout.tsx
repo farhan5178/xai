@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,6 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { Providers } from "./providers";
+
 export default function RootLayout({
   children,
 }: {
@@ -39,7 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SmoothScroll>
+          <Providers>{children}</Providers>
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

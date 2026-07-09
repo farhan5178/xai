@@ -23,6 +23,8 @@ function useCountUp(target: number, duration = 1500, isActive = true) {
   return count;
 }
 
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
+
 function KPICard({
   item,
   index,
@@ -43,35 +45,38 @@ function KPICard({
       ? (count / 1_000_000).toFixed(2) + "M"
       : count.toLocaleString();
 
+  // Color-coded spotlight based on item type
+  const glowColor = item.id === "accuracy" 
+    ? "rgba(6, 182, 212, 0.12)" // cyan
+    : item.id === "latency"
+    ? "rgba(16, 185, 129, 0.12)" // emerald
+    : "rgba(124, 58, 237, 0.12)"; // violet/indigo
+
   return (
     <motion.div
-      className="rounded-xl p-5 border group cursor-default"
-      style={{
-        background: "var(--bg-card)",
-        borderColor: "var(--border)",
-      }}
       initial={{ opacity: 0, y: 20 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.08, duration: 0.5 }}
-      whileHover={{
-        borderColor: "rgba(124,58,237,0.35)",
-        boxShadow: "0 0 30px rgba(124,58,237,0.1), 0 4px 20px rgba(0,0,0,0.4)",
-        y: -2,
-      }}
+      whileHover={{ y: -2 }}
     >
-      <div className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">
-        {item.label}
-      </div>
-      <div className="flex items-end gap-3">
-        <span className="font-display font-bold text-3xl text-white">{formatted}</span>
-        <span
-          className={`text-xs font-mono pb-1 ${
-            item.positive ? "text-emerald-400" : "text-red-400"
-          }`}
-        >
-          {item.delta}
-        </span>
-      </div>
+      <SpotlightCard
+        glowColor={glowColor}
+        className="p-5 border cursor-default h-full"
+      >
+        <div className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">
+          {item.label}
+        </div>
+        <div className="flex items-end gap-3">
+          <span className="font-display font-bold text-3xl text-white">{formatted}</span>
+          <span
+            className={`text-xs font-mono pb-1 ${
+              item.positive ? "text-emerald-400" : "text-red-400"
+            }`}
+          >
+            {item.delta}
+          </span>
+        </div>
+      </SpotlightCard>
     </motion.div>
   );
 }

@@ -62,7 +62,7 @@ export function Button({
             background:
               "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)",
           }}
-          animate={isHovered ? { opacity: 1, x: ["−100%", "100%"] } : { opacity: 0 }}
+          animate={isHovered ? { opacity: 1, x: ["-100%", "100%"] } : { opacity: 0 }}
           transition={{ duration: 0.5 }}
         />
       )}

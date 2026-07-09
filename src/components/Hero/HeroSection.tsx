@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import { staggerContainer, fadeUp, fadeIn } from "@/lib/animations";
 
@@ -19,6 +19,16 @@ export function HeroSection() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
+
+  const words = ["structured intelligence", "actionable insights", "AI automations"];
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
 
   const rawProgress = useTransform(scrollYProgress, [0, 0.6], [0, 1]);
   const smoothProgress = useSpring(rawProgress, { stiffness: 60, damping: 20 });
@@ -87,7 +97,20 @@ export function HeroSection() {
             <span className="text-gradient">raw data</span>
             <br />
             <span className="text-white">to </span>
-            <span className="text-gradient">clear intelligence</span>
+            <span className="relative inline-block overflow-hidden" style={{ verticalAlign: "bottom", height: "1.15em" }}>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  className="text-gradient block whitespace-nowrap"
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  {words[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </motion.h1>
 
           {/* Subtext */}

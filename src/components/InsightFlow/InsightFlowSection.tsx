@@ -350,7 +350,7 @@ export function InsightFlowSection() {
                 className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border"
                 style={{
                   color: isActive ? col.accent : "var(--text-secondary)",
-                  background: isActive ? col.bg : "transparent",
+                  background: isActive ? col.bg : "rgba(255,255,255,0)",
                   borderColor: isActive ? col.border : "var(--border)",
                 }}
                 whileHover={{ scale: 1.02 }}

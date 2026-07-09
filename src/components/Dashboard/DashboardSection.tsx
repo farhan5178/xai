@@ -141,7 +141,7 @@ export function DashboardSection() {
                       onClick={() => setActiveNav(item.id)}
                       className="relative flex items-center gap-2.5 px-2.5 py-2 rounded-lg w-full text-left transition-all duration-200"
                       style={{
-                        background: isActive ? "rgba(124,58,237,0.12)" : "transparent",
+                        background: isActive ? "rgba(124,58,237,0.12)" : "rgba(255,255,255,0)",
                         color: isActive ? "#a78bfa" : "var(--text-secondary)",
                       }}
                       whileHover={{ background: isActive ? "rgba(124,58,237,0.12)" : "rgba(255,255,255,0.04)" }}
@@ -203,7 +203,7 @@ export function DashboardSection() {
                       className="relative px-4 py-1.5 text-xs font-medium rounded-lg transition-all duration-200"
                       style={{
                         color: isActive ? "white" : "var(--text-tertiary)",
-                        background: isActive ? "rgba(255,255,255,0.06)" : "transparent",
+                        background: isActive ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0)",
                       }}
                       whileHover={{ color: "#fff" }}
                     >
