@@ -47,8 +47,8 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: "var(--bg-base)" }}
+      className="relative flex items-center justify-center overflow-hidden"
+      style={{ background: "var(--bg-base)", minHeight: "100vh", paddingTop: "120px", paddingBottom: "60px" }}
     >
       {/* Particle canvas - only mount when section is visible to save GPU context */}
       {isInView && <ParticleCanvas scrollProgress={scrollProg} />}
