@@ -45,29 +45,32 @@ export function DashboardSection() {
 
       <div className="section-container">
         {/* Header */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-16 max-w-2xl mx-auto"
-        >
-          <motion.div variants={fadeUp} className="mb-4">
-            <span className="font-mono text-xs tracking-widest uppercase text-[var(--text-tertiary)]">
-              Intelligence Dashboard
-            </span>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-display font-bold text-white mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+        <div className="w-full flex justify-center">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="flex flex-col items-center text-center max-w-3xl w-full"
+            style={{ marginBottom: "64px" }}
           >
-            Your intelligence,{" "}
-            <span className="text-gradient">at a glance</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-[var(--text-secondary)] text-lg">
-            A calm, structured workspace where every signal has meaning and every insight drives action.
-          </motion.p>
-        </motion.div>
+            <motion.div variants={fadeUp} style={{ marginBottom: "16px" }}>
+              <span className="font-mono text-xs tracking-widest uppercase text-[var(--text-tertiary)] antialiased">
+                Intelligence Dashboard
+              </span>
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-display font-bold text-white tracking-tight antialiased"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, marginBottom: "24px" }}
+            >
+              Your intelligence,{" "}
+              <span className="text-gradient">at a glance</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-[var(--text-secondary)] text-lg md:text-xl max-w-2xl antialiased">
+              A calm, structured workspace where every signal has meaning and every insight drives action.
+            </motion.p>
+          </motion.div>
+        </div>
 
         {/* Dashboard shell */}
         <motion.div

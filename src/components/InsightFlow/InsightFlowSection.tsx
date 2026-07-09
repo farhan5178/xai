@@ -271,24 +271,24 @@ export function InsightFlowSection() {
   const colorVars = {
     cyan: {
       accent: "#06b6d4",
-      bg: "rgba(6,182,212,0.08)",
-      border: "rgba(6,182,212,0.2)",
+      bg: "linear-gradient(135deg, rgba(6,182,212,0.25) 0%, rgba(59,130,246,0.05) 100%)",
+      border: "rgba(6,182,212,0.3)",
       badge: "bg-cyan-500/10 text-cyan-300 border-cyan-500/20",
-      glow: "rgba(6,182,212,0.15)",
+      glow: "rgba(6,182,212,0.2)",
     },
     violet: {
       accent: "#7c3aed",
-      bg: "rgba(124,58,237,0.08)",
-      border: "rgba(124,58,237,0.2)",
+      bg: "linear-gradient(135deg, rgba(124,58,237,0.25) 0%, rgba(168,85,247,0.05) 100%)",
+      border: "rgba(124,58,237,0.3)",
       badge: "bg-violet-500/10 text-violet-300 border-violet-500/20",
-      glow: "rgba(124,58,237,0.15)",
+      glow: "rgba(124,58,237,0.2)",
     },
     emerald: {
       accent: "#10b981",
-      bg: "rgba(16,185,129,0.08)",
-      border: "rgba(16,185,129,0.2)",
+      bg: "linear-gradient(135deg, rgba(16,185,129,0.25) 0%, rgba(34,197,94,0.05) 100%)",
+      border: "rgba(16,185,129,0.3)",
       badge: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-      glow: "rgba(16,185,129,0.15)",
+      glow: "rgba(16,185,129,0.2)",
     },
   };
 
@@ -298,8 +298,8 @@ export function InsightFlowSection() {
     <section
       id="insight-flow"
       ref={sectionRef}
-      className="relative section-py overflow-hidden"
-      style={{ background: "var(--bg-base)" }}
+      className="relative pb-[var(--section-py)] overflow-hidden"
+      style={{ background: "var(--bg-base)", paddingTop: "60px" }}
     >
       {/* Background grid */}
       <div className="absolute inset-0 dot-grid opacity-50" />
@@ -313,61 +313,87 @@ export function InsightFlowSection() {
 
       <div className="section-container relative z-10">
         {/* Header */}
-        <motion.div
-          className="flex flex-col items-center text-center mb-16 max-w-2xl mx-auto w-full"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.div variants={fadeUp} className="mb-4">
-            <span className="font-mono text-xs tracking-widest uppercase text-[var(--text-tertiary)]">
-              How it works
-            </span>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-display font-bold text-white mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+        <div className="w-full flex justify-center">
+          <motion.div
+            className="flex flex-col items-center text-center max-w-3xl w-full"
+            style={{ marginBottom: "48px" }}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
           >
-            The intelligence{" "}
-            <span className="text-gradient">pipeline</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-[var(--text-secondary)] text-lg">
-            Three stages. One continuous loop. Zero manual effort.
-          </motion.p>
-        </motion.div>
+            <motion.div variants={fadeUp} style={{ marginBottom: "16px" }}>
+              <span className="font-mono text-xs tracking-widest uppercase text-[var(--text-tertiary)] antialiased">
+                How it works
+              </span>
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-display font-bold text-white tracking-tight antialiased"
+              style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: 1.1, marginBottom: "24px" }}
+            >
+              The intelligence{" "}
+              <span className="text-gradient">pipeline</span>
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-[var(--text-secondary)] text-lg md:text-xl max-w-2xl antialiased">
+              Three stages. One continuous loop. Zero manual effort.
+            </motion.p>
+          </motion.div>
+        </div>
 
         {/* Stage selector tabs */}
-        <div className="flex justify-center gap-2 mb-12">
-          {insightFlowStages.map((s, i) => {
-            const isActive = i === activeStage;
-            const col = colorVars[stageColors[i]];
-            return (
-              <motion.button
-                key={s.id}
-                onClick={() => setActiveStage(i)}
-                className="relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 border"
-                style={{
-                  color: isActive ? col.accent : "var(--text-secondary)",
-                  background: isActive ? col.bg : "rgba(255,255,255,0)",
-                  borderColor: isActive ? col.border : "var(--border)",
-                }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="font-mono text-xs mr-2 opacity-60">{s.number}</span>
-                {s.title}
-                {isActive && (
-                  <motion.div
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full"
-                    layoutId="stage-indicator"
-                    style={{ background: col.accent }}
-                  />
-                )}
-              </motion.button>
-            );
-          })}
+        <div className="w-full flex justify-center" style={{ marginBottom: "64px" }}>
+          <div className="flex flex-wrap justify-center gap-4">
+            {insightFlowStages.map((s, i) => {
+              const isActive = i === activeStage;
+              const col = colorVars[stageColors[i]];
+              return (
+                <motion.button
+                  key={s.id}
+                  onClick={() => setActiveStage(i)}
+                  className="relative rounded-full text-sm font-medium transition-colors duration-300 border group antialiased"
+                  style={{
+                    padding: "12px 32px",
+                    color: isActive ? "#ffffff" : "var(--text-secondary)",
+                    borderColor: isActive ? "transparent" : "rgba(255,255,255,0.05)",
+                    background: "transparent",
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Animated Pill Background */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-tab-bg"
+                      className="absolute inset-0 rounded-full border pointer-events-none"
+                      style={{
+                        background: col.bg,
+                        borderColor: col.border,
+                        boxShadow: `0 0 20px ${col.glow}`
+                      }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                  {/* Content */}
+                  <span className="relative z-10 flex items-center justify-center">
+                    <span 
+                      className="transition-colors duration-300"
+                      style={{ 
+                        color: isActive ? col.accent : "rgba(255,255,255,0.3)",
+                        marginRight: "10px",
+                        fontWeight: 600,
+                        fontSize: "0.75rem",
+                        letterSpacing: "0.05em"
+                      }}
+                    >
+                      {s.number}
+                    </span>
+                    <span className="font-medium">{s.title}</span>
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Main content panel */}
