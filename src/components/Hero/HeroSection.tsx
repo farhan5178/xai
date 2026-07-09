@@ -15,7 +15,7 @@ export function HeroSection() {
   const [scrollProg, setScrollProg] = useState(0);
   const isInView = useInView(sectionRef, { margin: "200px 0px" });
 
-  const { scrollYProgress } = useScroll({
+  const { scrollYProgress, scrollY } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
@@ -40,6 +40,7 @@ export function HeroSection() {
 
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scrollTextOpacity = useTransform(scrollY, [0, 30], [1, 0]);
 
 
   return (
@@ -81,10 +82,18 @@ export function HeroSection() {
         >
           {/* Pill badge */}
           <motion.div variants={fadeIn}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-xs font-mono font-medium tracking-widest uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-              Intelligence Workspace — v2.4
-            </div>
+            <motion.div 
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_20px_rgba(124,58,237,0.1)] relative overflow-hidden group cursor-default"
+              style={{ padding: "8px 24px" }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="w-2 h-2 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.8)] animate-pulse relative z-10" />
+              <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.2em] text-white/70 group-hover:text-white transition-colors duration-300 relative z-10 uppercase">
+                Intelligence Workspace <span className="text-violet-400 mx-1">—</span> v2.4
+              </span>
+            </motion.div>
           </motion.div>
 
           {/* Main headline */}
@@ -125,19 +134,21 @@ export function HeroSection() {
           {/* CTA buttons */}
           <motion.div
             variants={fadeUp}
-            className="flex items-center gap-4 mt-2 flex-wrap justify-center"
+            className="flex items-center gap-5 mt-4 flex-wrap justify-center"
           >
             <motion.a
               href="#dashboard"
-              className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-display font-semibold text-white text-sm"
+              className="flex items-center justify-center gap-2 font-display font-semibold text-white text-sm rounded-full"
               style={{
                 background: "linear-gradient(135deg, #7c3aed, #4f46e5, #0891b2)",
-                boxShadow: "0 0 40px rgba(124,58,237,0.35), 0 4px 16px rgba(0,0,0,0.4)",
+                boxShadow: "0 0 30px rgba(124,58,237,0.35), 0 4px 12px rgba(0,0,0,0.4)",
+                padding: "12px 28px",
+                minHeight: "48px",
               }}
               whileHover={{
                 scale: 1.03,
-                y: -2,
-                boxShadow: "0 0 60px rgba(124,58,237,0.5), 0 8px 24px rgba(0,0,0,0.5)",
+                y: -1,
+                boxShadow: "0 0 50px rgba(124,58,237,0.5), 0 6px 16px rgba(0,0,0,0.5)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -149,13 +160,16 @@ export function HeroSection() {
 
             <motion.a
               href="#insight-flow"
-              className="flex items-center gap-2 px-7 py-3.5 rounded-xl font-display font-semibold text-sm border"
+              className="flex items-center justify-center gap-2 font-display font-semibold text-sm border rounded-full"
               style={{
                 color: "var(--text-secondary)",
-                borderColor: "var(--border)",
+                borderColor: "rgba(255,255,255,0.1)",
                 background: "rgba(17,24,39,0.5)",
+                padding: "12px 28px",
+                minHeight: "48px",
+                backdropFilter: "blur(12px)",
               }}
-              whileHover={{ scale: 1.02, color: "#fff", borderColor: "rgba(124,58,237,0.5)" }}
+              whileHover={{ scale: 1.02, color: "#fff", borderColor: "rgba(124,58,237,0.5)", background: "rgba(124,58,237,0.1)" }}
               whileTap={{ scale: 0.98 }}
             >
               See how it works
@@ -165,7 +179,7 @@ export function HeroSection() {
           {/* Stat bar */}
           <motion.div
             variants={fadeIn}
-            className="flex items-center gap-8 mt-8 pt-8 border-t flex-wrap justify-center"
+            className="flex items-center gap-8 mt-12 pt-8 border-t flex-wrap justify-center mb-24"
             style={{ borderColor: "var(--border)" }}
           >
             {[
@@ -183,22 +197,28 @@ export function HeroSection() {
       </motion.div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <span className="text-xs text-[var(--text-tertiary)] font-mono tracking-widest uppercase">Scroll to explore</span>
+      <motion.div style={{ opacity: scrollTextOpacity }} className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
         <motion.div
-          className="w-5 h-8 rounded-full border border-[rgba(255,255,255,0.15)] flex items-start justify-center pt-1.5"
+          className="flex flex-col items-center gap-3"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
+        >
+          <span 
+            className="text-[10px] text-[var(--text-tertiary)] font-mono tracking-[0.25em] uppercase"
+          >
+            Scroll to explore
+          </span>
+        <motion.div
+          className="w-[22px] h-[36px] rounded-full border border-[rgba(255,255,255,0.2)] flex items-start justify-center pt-1.5"
         >
           <motion.div
             className="w-1 h-1.5 rounded-full bg-violet-400"
-            animate={{ y: [0, 12, 0] }}
+            animate={{ y: [0, 14, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
+      </motion.div>
       </motion.div>
     </section>
   );

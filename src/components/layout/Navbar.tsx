@@ -6,6 +6,7 @@ import { Button } from "@heroui/react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredNavIndex, setHoveredNavIndex] = useState<number | null>(null);
   const { scrollY } = useScroll();
 
   useEffect(() => {
@@ -28,15 +29,15 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
     >
       <motion.nav
-        className="flex items-center justify-between w-full px-6 md:px-12 transition-all duration-500"
+        className="flex items-center justify-between w-full px-6 md:px-12 transition-all duration-300"
         animate={
           scrolled
             ? {
-                backgroundColor: "rgba(5, 8, 16, 0.75)",
-                backdropFilter: "blur(24px)",
+                backgroundColor: "rgba(5, 8, 16, 0.85)",
+                backdropFilter: "blur(12px)",
                 borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                paddingTop: "16px",
-                paddingBottom: "16px",
+                paddingTop: "24px",
+                paddingBottom: "24px",
               }
             : {
                 backgroundColor: "rgba(5, 8, 16, 0)",
@@ -61,7 +62,10 @@ export function Navbar() {
               }}
             />
             <div className="absolute inset-[2px] rounded-[6px] bg-[var(--bg-base)] flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <svg 
+                width="14" height="14" viewBox="0 0 14 14" fill="none"
+                className="transition-transform duration-[800ms] ease-in-out group-hover:[transform:rotate(360deg)]"
+              >
                 <path
                   d="M2 7L5.5 3.5L7 5L9 2L12 7L9 10L7 8.5L5.5 10.5L2 7Z"
                   fill="url(#xgrd)"
@@ -76,20 +80,34 @@ export function Navbar() {
               </svg>
             </div>
           </div>
-          <span className="font-display font-bold text-base tracking-tight text-white">
+          <span className="font-display font-bold text-base tracking-tight text-white transition-all duration-[800ms] ease-in-out group-hover:tracking-[0.1em] group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]">
             Xai
           </span>
         </motion.a>
 
-        {/* Nav links - Perfectly centered */}
-        <div className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2">
-          {navItems.map((item) => (
+        {/* Nav links - Perfectly centered with pill hover */}
+        <div 
+          className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2"
+          onMouseLeave={() => setHoveredNavIndex(null)}
+        >
+          {navItems.map((item, index) => (
             <motion.a
               key={item.label}
               href={item.href}
-              className="px-4 py-2 text-sm font-medium rounded-full text-[var(--text-secondary)] hover:text-white hover:bg-white/[0.04] transition-all duration-200"
+              className="relative px-4 py-2 text-sm font-medium rounded-full text-[var(--text-secondary)] hover:text-white transition-all duration-200"
+              onMouseEnter={() => setHoveredNavIndex(index)}
             >
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
+              {hoveredNavIndex === index && (
+                <motion.div
+                  layoutId="nav-pill"
+                  className="absolute inset-0 bg-white/[0.06] rounded-full border border-white/5"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
+                />
+              )}
             </motion.a>
           ))}
         </div>

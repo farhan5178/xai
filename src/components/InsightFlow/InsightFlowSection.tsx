@@ -314,7 +314,7 @@ export function InsightFlowSection() {
       <div className="section-container relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-16 max-w-2xl mx-auto"
+          className="flex flex-col items-center text-center mb-16 max-w-2xl mx-auto w-full"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
