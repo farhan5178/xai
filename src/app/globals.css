@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@heroui/theme";
 
 /* ─── Design System Tokens ──────────────────────────────────────────────────── */
 :root {
