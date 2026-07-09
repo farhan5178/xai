@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroui/react": "^3.2.2",
+    "@heroui/theme": "^2.4.26",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@types/three": "^0.185.0",
