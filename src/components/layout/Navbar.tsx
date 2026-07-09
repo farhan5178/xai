@@ -2,7 +2,6 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Button } from "@heroui/react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -87,14 +86,16 @@ export function Navbar() {
 
         {/* Nav links - Perfectly centered with pill hover */}
         <div 
-          className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2"
+          className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center"
+          style={{ gap: "32px" }}
           onMouseLeave={() => setHoveredNavIndex(null)}
         >
           {navItems.map((item, index) => (
             <motion.a
               key={item.label}
               href={item.href}
-              className="relative px-4 py-2 text-sm font-medium rounded-full text-[var(--text-secondary)] hover:text-white transition-all duration-200"
+              className="relative text-sm font-medium text-[var(--text-secondary)] hover:text-white transition-all duration-200"
+              style={{ padding: "8px 16px" }}
               onMouseEnter={() => setHoveredNavIndex(index)}
             >
               <span className="relative z-10">{item.label}</span>
@@ -113,7 +114,7 @@ export function Navbar() {
         </div>
 
         {/* CTA */}
-        <div className="flex items-center gap-4 relative z-10">
+        <div className="flex items-center relative z-10" style={{ gap: "24px" }}>
           <motion.a
             href="#"
             className="hidden md:block text-sm font-medium text-[var(--text-secondary)] hover:text-white transition-colors duration-200"
@@ -121,22 +122,23 @@ export function Navbar() {
             Sign in
           </motion.a>
           
-          <Button
-            as="a"
+          <motion.a
             href="#dashboard"
-            color="primary"
-            variant="shadow"
-            radius="full"
-            className="font-semibold text-white px-6"
+            className="flex items-center justify-center gap-2 text-sm font-semibold text-white rounded-full transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, rgba(124,58,237,1), rgba(79,70,229,1))",
+              background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
+              padding: "12px 28px",
+              minHeight: "46px",
+              boxShadow: "0 4px 14px rgba(124,58,237,0.4)"
             }}
+            whileHover={{ scale: 1.02, boxShadow: "0 6px 20px rgba(124,58,237,0.6)" }}
+            whileTap={{ scale: 0.98 }}
           >
             Get access
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="ml-1">
               <path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </Button>
+          </motion.a>
         </div>
       </motion.nav>
     </motion.header>
