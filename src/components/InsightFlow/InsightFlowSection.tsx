@@ -28,19 +28,28 @@ function IngestVisual() {
       ))}
 
       {/* Central collector */}
-      <motion.rect
-        x="80" y="80" width="160" height="40"
-        rx="8"
-        fill="rgba(6,182,212,0.1)"
-        stroke="#06b6d4"
-        strokeWidth="1"
-        initial={{ opacity: 0, scaleX: 0 }}
-        animate={{ opacity: 1, scaleX: 1 }}
+      <motion.foreignObject
+        x="60" y="60" width="200" height="80"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-      />
-      <text x="160" y="105" textAnchor="middle" fill="#22d3ee" fontSize="11" fontFamily="monospace">
-        Data Ingestion Layer
-      </text>
+      >
+        <div className="w-full h-full flex flex-col justify-center bg-zinc-950/90 border border-cyan-500/30 rounded-lg p-3 shadow-lg shadow-cyan-900/20 backdrop-blur-md font-mono text-[9px] leading-tight text-zinc-300">
+          <div className="flex items-center justify-between mb-2 border-b border-cyan-500/20 pb-1">
+            <span className="text-cyan-400 font-semibold tracking-wider text-[8px]">CONFIG.JSON</span>
+            <span className="flex gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-600"></span>
+            </span>
+          </div>
+          <div>
+            <span className="text-pink-400">&quot;source&quot;</span>: <span className="text-green-400">&quot;postgresql&quot;</span>,<br/>
+            <span className="text-pink-400">&quot;mode&quot;</span>: <span className="text-green-400">&quot;continuous_sync&quot;</span>,<br/>
+            <span className="text-pink-400">&quot;status&quot;</span>: <span className="text-cyan-400">&quot;active&quot;</span>
+          </div>
+        </div>
+      </motion.foreignObject>
 
       {/* Connecting arrows from lines to rect */}
       {[0, 1, 2, 3, 4].map((i) => (
@@ -425,24 +434,19 @@ export function InsightFlowSection() {
                 {stage.description}
               </p>
 
-              <div className="flex flex-wrap gap-3 mt-2">
+              <div className="flex flex-wrap gap-4 mt-5">
                 {stage.tags.map((tag) => (
-                  <span
+                  <div
                     key={tag}
-                    className="px-4 py-1.5 rounded-xl text-xs font-mono border"
-                    style={{
-                      background: c.bg,
-                      borderColor: c.border,
-                      color: c.accent,
-                    }}
+                    className="inline-flex items-center justify-center px-6 py-2.5 whitespace-nowrap text-sm font-medium tracking-wide text-zinc-300 hover:text-white border border-zinc-700 bg-zinc-900/60 hover:bg-zinc-800 rounded-full transition-all duration-200 shadow-sm"
                   >
                     {tag}
-                  </span>
+                  </div>
                 ))}
               </div>
 
               {/* Progress bar to next stage */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mt-8">
                 {insightFlowStages.map((_, i) => (
                   <motion.div
                     key={i}

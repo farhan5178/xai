@@ -31,8 +31,9 @@ export function DataTable() {
             <button
               key={s}
               onClick={() => setSortBy(s)}
-              className="text-xs font-mono px-2 py-1 rounded capitalize transition-colors"
+              className="text-xs font-mono rounded capitalize transition-colors"
               style={{
+                padding: "4px 8px",
                 color: sortBy === s ? "#7c3aed" : "var(--text-tertiary)",
                 background: sortBy === s ? "rgba(124,58,237,0.1)" : "transparent",
               }}
@@ -66,7 +67,7 @@ export function DataTable() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.05 }}
             >
-              <div className="flex items-center gap-3 px-3 py-2.5">
+              <div className="flex items-center gap-3" style={{ padding: "10px 12px" }}>
                 {/* ID */}
                 <span className="font-mono text-[10px] text-[var(--text-muted)] w-16 flex-shrink-0">
                   {row.id}
@@ -95,8 +96,9 @@ export function DataTable() {
 
                 {/* Priority badge */}
                 <span
-                  className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold flex-shrink-0 border"
+                  className="rounded-md text-[10px] font-mono font-semibold flex-shrink-0 border"
                   style={{
+                    padding: "2px 8px",
                     color: pc.color,
                     background: pc.bg,
                     borderColor: pc.border,
@@ -122,8 +124,8 @@ export function DataTable() {
                     className="overflow-hidden"
                   >
                     <div
-                      className="px-3 py-3 border-t text-xs text-[var(--text-secondary)]"
-                      style={{ borderColor: "rgba(124,58,237,0.2)" }}
+                      className="border-t text-xs text-[var(--text-secondary)]"
+                      style={{ padding: "12px", borderColor: "rgba(124,58,237,0.2)" }}
                     >
                       <div className="flex items-center gap-6">
                         <div>

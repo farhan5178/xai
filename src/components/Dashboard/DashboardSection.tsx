@@ -87,8 +87,8 @@ export function DashboardSection() {
         >
           {/* Top bar */}
           <div
-            className="flex items-center gap-2 px-5 py-3 border-b"
-            style={{ borderColor: "var(--border)", background: "rgba(13,17,23,0.7)" }}
+            className="flex items-center gap-2 border-b"
+            style={{ borderColor: "var(--border)", background: "rgba(13,17,23,0.7)", padding: "12px 20px" }}
           >
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500/60" />
@@ -114,8 +114,8 @@ export function DashboardSection() {
               transition={{ delay: 0.4, duration: 0.5 }}
             >
               {/* Workspace picker */}
-              <div className="px-4 py-4 border-b" style={{ borderColor: "var(--border)" }}>
-                <div className="flex items-center gap-2 px-2 py-2 rounded-lg bg-white/[0.04] cursor-pointer hover:bg-white/[0.06] transition-colors">
+              <div className="border-b" style={{ borderColor: "var(--border)", padding: "16px" }}>
+                <div className="flex items-center gap-2 rounded-lg bg-white/[0.04] cursor-pointer hover:bg-white/[0.06] transition-colors" style={{ padding: "8px" }}>
                   <div
                     className="w-6 h-6 rounded flex items-center justify-center flex-shrink-0 text-white"
                     style={{
@@ -135,15 +135,17 @@ export function DashboardSection() {
               </div>
 
               {/* Nav items */}
-              <nav className="flex flex-col gap-0.5 px-3 py-3 flex-1">
+              <nav className="flex flex-col flex-1" style={{ padding: "12px", gap: "4px" }}>
                 {navItems.map((item, i) => {
                   const isActive = activeNav === item.id;
                   return (
                     <motion.button
                       key={item.id}
                       onClick={() => setActiveNav(item.id)}
-                      className="relative flex items-center gap-2.5 px-2.5 py-2 rounded-lg w-full text-left transition-all duration-200"
+                      className="relative flex items-center rounded-lg w-full text-left transition-all duration-200"
                       style={{
+                        padding: "8px 12px",
+                        gap: "10px",
                         background: isActive ? "rgba(16,185,129,0.12)" : "rgba(255,255,255,0)",
                         color: isActive ? "#34d399" : "var(--text-secondary)",
                       }}
@@ -152,10 +154,12 @@ export function DashboardSection() {
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + i * 0.05 }}
                     >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d={iconPaths[item.icon]} />
-                      </svg>
-                      <span className="text-xs font-medium">{item.label}</span>
+                      <div className="w-5 flex items-center justify-center flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                          <path d={iconPaths[item.icon]} />
+                        </svg>
+                      </div>
+                      <span className="text-[13px] font-semibold tracking-wide">{item.label}</span>
                       {item.badge && (
                         <span
                           className="ml-auto text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md"
@@ -179,11 +183,11 @@ export function DashboardSection() {
               </nav>
 
               {/* Bottom user */}
-              <div className="px-3 pb-4">
-                <div className="flex items-center gap-2 px-2 py-2 rounded-lg">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex-shrink-0" />
+              <div style={{ padding: "0 12px 16px 12px" }}>
+                <div className="flex items-center gap-2 rounded-lg" style={{ padding: "8px" }}>
+                  <img src="https://ui-avatars.com/api/?name=Farhan&background=0D8ABC&color=fff" alt="Farhan" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-medium text-white truncate">Alex Chen</p>
+                    <p className="text-xs font-medium text-white truncate">Farhan</p>
                     <p className="text-[10px] text-[var(--text-muted)] truncate">admin</p>
                   </div>
                 </div>
@@ -194,8 +198,8 @@ export function DashboardSection() {
             <main className="flex-1 flex flex-col overflow-hidden">
               {/* Tab bar */}
               <div
-                className="flex items-center gap-1 px-5 py-3 border-b"
-                style={{ borderColor: "var(--border)" }}
+                className="flex items-center flex-wrap border-b overflow-x-auto hide-scrollbar"
+                style={{ borderColor: "var(--border)", padding: "12px 24px", gap: "24px" }}
               >
                 {tabs.map((tab) => {
                   const isActive = activeTab === tab;
@@ -203,21 +207,15 @@ export function DashboardSection() {
                     <motion.button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className="relative px-4 py-1.5 text-xs font-medium rounded-lg transition-all duration-200"
+                      className="relative text-xs font-medium rounded-lg transition-all duration-200"
                       style={{
+                        padding: "8px 16px",
                         color: isActive ? "white" : "var(--text-tertiary)",
-                        background: isActive ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0)",
+                        background: isActive ? "rgba(255,255,255,0.12)" : "transparent",
                       }}
-                      whileHover={{ color: "#fff" }}
+                      whileHover={{ color: "#fff", background: isActive ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.05)" }}
                     >
                       {tab}
-                      {isActive && (
-                        <motion.div
-                          layoutId="tab-underline"
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px rounded-full"
-                          style={{ background: "var(--accent-violet)" }}
-                        />
-                      )}
                     </motion.button>
                   );
                 })}
@@ -230,7 +228,7 @@ export function DashboardSection() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-5 overflow-auto">
+              <div className="flex-1 overflow-auto" style={{ padding: "24px" }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab}
@@ -238,23 +236,23 @@ export function DashboardSection() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
                     transition={{ duration: 0.2 }}
-                    className="flex flex-col gap-5"
+                    className="flex flex-col gap-8"
                   >
                     {/* KPI Cards */}
                     <KPICards isVisible={isInView} />
 
                     {/* Chart */}
                     <div
-                      className="rounded-xl border p-5"
-                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)" }}
+                      className="rounded-xl border"
+                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}
                     >
                       <InsightChart />
                     </div>
 
                     {/* Table */}
                     <div
-                      className="rounded-xl border p-5"
-                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)" }}
+                      className="rounded-xl border"
+                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}
                     >
                       <DataTable />
                     </div>

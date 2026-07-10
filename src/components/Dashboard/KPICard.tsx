@@ -61,15 +61,15 @@ function KPICard({
     >
       <SpotlightCard
         glowColor={glowColor}
-        className="p-5 border cursor-default h-full"
+        className="border cursor-default h-full !rounded-2xl"
       >
-        <div className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-3">
+        <div className="text-xs font-mono text-[var(--text-tertiary)] uppercase tracking-wider mb-2">
           {item.label}
         </div>
-        <div className="flex items-end gap-3">
-          <span className="font-display font-bold text-3xl text-white">{formatted}</span>
+        <div className="flex items-baseline gap-3 mt-1">
+          <span className="font-display font-bold text-4xl text-white tracking-tight">{formatted}</span>
           <span
-            className={`text-xs font-mono pb-1 ${
+            className={`text-sm font-mono font-medium ${
               item.positive ? "text-emerald-400" : "text-red-400"
             }`}
           >
@@ -83,7 +83,7 @@ function KPICard({
 
 export function KPICards({ isVisible }: { isVisible: boolean }) {
   return (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-5">
       {kpiData.map((item, i) => (
         <KPICard key={item.id} item={item} index={i} isVisible={isVisible} />
       ))}

@@ -29,6 +29,7 @@ function CustomTooltip({ active, payload, label }: any) {
         background: "rgba(13,17,23,0.95)",
         borderColor: "rgba(255,255,255,0.1)",
         backdropFilter: "blur(12px)",
+        padding: "12px 16px",
       }}
     >
       <p className="font-mono text-xs text-[var(--text-tertiary)] mb-2">{label}</p>
@@ -64,8 +65,9 @@ export function InsightChart() {
               key={m.key}
               onClick={() => setActiveMetric(m.key)}
               className="px-3 py-1 rounded-lg text-xs font-mono border transition-all duration-200"
-              style={
-                activeMetric === m.key
+              style={{
+                padding: "6px 14px",
+                ...(activeMetric === m.key
                   ? {
                       background: m.color + "20",
                       borderColor: m.color + "40",
@@ -75,8 +77,8 @@ export function InsightChart() {
                       background: "rgba(255,255,255,0)",
                       borderColor: "var(--border)",
                       color: "var(--text-tertiary)",
-                    }
-              }
+                    })
+              }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
