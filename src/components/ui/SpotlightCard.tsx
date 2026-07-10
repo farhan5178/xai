@@ -11,7 +11,7 @@ interface SpotlightCardProps {
 export function SpotlightCard({
   children,
   className = "",
-  glowColor = "rgba(124, 58, 237, 0.15)", // Default violet glow
+  glowColor = "rgba(16, 185, 129, 0.15)", // Default emerald glow
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 

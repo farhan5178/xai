@@ -83,15 +83,15 @@ export function HeroSection() {
           {/* Pill badge */}
           <motion.div variants={fadeIn}>
             <motion.div 
-              className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_20px_rgba(124,58,237,0.1)] relative overflow-hidden group cursor-default"
+              className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.1)] relative overflow-hidden group cursor-default"
               style={{ padding: "8px 24px" }}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="w-2 h-2 rounded-full bg-violet-400 shadow-[0_0_10px_rgba(167,139,250,0.8)] animate-pulse relative z-10" />
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)] animate-pulse relative z-10" />
               <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-[0.2em] text-white/70 group-hover:text-white transition-colors duration-300 relative z-10 uppercase">
-                Intelligence Workspace <span className="text-violet-400 mx-1">—</span> v2.4
+                Intelligence Workspace <span className="text-emerald-400 mx-1">—</span> v2.4
               </span>
             </motion.div>
           </motion.div>
@@ -140,15 +140,15 @@ export function HeroSection() {
               href="#dashboard"
               className="flex items-center justify-center gap-2 font-display font-semibold text-white text-sm rounded-full"
               style={{
-                background: "linear-gradient(135deg, #7c3aed, #4f46e5, #0891b2)",
-                boxShadow: "0 0 30px rgba(124,58,237,0.35), 0 4px 12px rgba(0,0,0,0.4)",
+                background: "linear-gradient(135deg, #10b981, #059669, #14b8a6)",
+                boxShadow: "0 0 30px rgba(16,185,129,0.35), 0 4px 12px rgba(0,0,0,0.4)",
                 padding: "12px 28px",
                 minHeight: "48px",
               }}
               whileHover={{
                 scale: 1.03,
                 y: -1,
-                boxShadow: "0 0 50px rgba(124,58,237,0.5), 0 6px 16px rgba(0,0,0,0.5)",
+                boxShadow: "0 0 50px rgba(16,185,129,0.5), 0 6px 16px rgba(0,0,0,0.5)",
               }}
               whileTap={{ scale: 0.97 }}
             >
@@ -169,7 +169,7 @@ export function HeroSection() {
                 minHeight: "48px",
                 backdropFilter: "blur(12px)",
               }}
-              whileHover={{ scale: 1.02, color: "#fff", borderColor: "rgba(124,58,237,0.5)", background: "rgba(124,58,237,0.1)" }}
+              whileHover={{ scale: 1.02, color: "#fff", borderColor: "rgba(16,185,129,0.5)", background: "rgba(16,185,129,0.1)" }}
               whileTap={{ scale: 0.98 }}
             >
               See how it works
@@ -213,7 +213,7 @@ export function HeroSection() {
           className="w-[22px] h-[36px] rounded-full border border-[rgba(255,255,255,0.2)] flex items-start justify-center pt-1.5"
         >
           <motion.div
-            className="w-1 h-1.5 rounded-full bg-violet-400"
+            className="w-1 h-1.5 rounded-full bg-emerald-400"
             animate={{ y: [0, 14, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />

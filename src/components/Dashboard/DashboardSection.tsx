@@ -144,10 +144,10 @@ export function DashboardSection() {
                       onClick={() => setActiveNav(item.id)}
                       className="relative flex items-center gap-2.5 px-2.5 py-2 rounded-lg w-full text-left transition-all duration-200"
                       style={{
-                        background: isActive ? "rgba(124,58,237,0.12)" : "rgba(255,255,255,0)",
-                        color: isActive ? "#a78bfa" : "var(--text-secondary)",
+                        background: isActive ? "rgba(16,185,129,0.12)" : "rgba(255,255,255,0)",
+                        color: isActive ? "#34d399" : "var(--text-secondary)",
                       }}
-                      whileHover={{ background: isActive ? "rgba(124,58,237,0.12)" : "rgba(255,255,255,0.04)" }}
+                      whileHover={{ background: isActive ? "rgba(16,185,129,0.12)" : "rgba(255,255,255,0.04)" }}
                       initial={{ opacity: 0, x: -10 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + i * 0.05 }}
@@ -160,8 +160,8 @@ export function DashboardSection() {
                         <span
                           className="ml-auto text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-md"
                           style={{
-                            background: isActive ? "rgba(124,58,237,0.3)" : "rgba(255,255,255,0.08)",
-                            color: isActive ? "#a78bfa" : "var(--text-tertiary)",
+                            background: isActive ? "rgba(16,185,129,0.3)" : "rgba(255,255,255,0.08)",
+                            color: isActive ? "#34d399" : "var(--text-tertiary)",
                           }}
                         >
                           {item.badge}
@@ -170,7 +170,7 @@ export function DashboardSection() {
                       {isActive && (
                         <motion.div
                           layoutId="sidebar-active"
-                          className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full bg-violet-500"
+                          className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full bg-emerald-500"
                         />
                       )}
                     </motion.button>
@@ -181,7 +181,7 @@ export function DashboardSection() {
               {/* Bottom user */}
               <div className="px-3 pb-4">
                 <div className="flex items-center gap-2 px-2 py-2 rounded-lg">
-                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-violet-500 to-cyan-500 flex-shrink-0" />
+                  <div className="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex-shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium text-white truncate">Alex Chen</p>
                     <p className="text-[10px] text-[var(--text-muted)] truncate">admin</p>

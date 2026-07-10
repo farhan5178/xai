@@ -47,10 +47,10 @@ function KPICard({
 
   // Color-coded spotlight based on item type
   const glowColor = item.id === "accuracy" 
-    ? "rgba(6, 182, 212, 0.12)" // cyan
+    ? "rgba(20, 184, 166, 0.12)" // teal
     : item.id === "latency"
-    ? "rgba(16, 185, 129, 0.12)" // emerald
-    : "rgba(124, 58, 237, 0.12)"; // violet/indigo
+    ? "rgba(52, 211, 153, 0.12)" // emerald light
+    : "rgba(16, 185, 129, 0.12)"; // emerald base
 
   return (
     <motion.div

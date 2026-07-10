@@ -37,12 +37,12 @@ function ParticleMesh({ scrollProgress }: { scrollProgress: number }) {
       tgt[i3 + 1] = gy * gridSpacing;
       tgt[i3 + 2] = 0;
 
-      // Color — mix violet and cyan
+      // Color — mix emerald and teal
       const t = Math.random();
       if (t < 0.5) {
-        col[i3] = 0.49; col[i3 + 1] = 0.23; col[i3 + 2] = 0.93; // violet
+        col[i3] = 0.06; col[i3 + 1] = 0.73; col[i3 + 2] = 0.51; // emerald
       } else {
-        col[i3] = 0.02; col[i3 + 1] = 0.71; col[i3 + 2] = 0.83; // cyan
+        col[i3] = 0.08; col[i3 + 1] = 0.72; col[i3 + 2] = 0.65; // teal
       }
     }
     return { positions: pos, targets: tgt, colors: col };

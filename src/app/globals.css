@@ -1,29 +1,40 @@
 @import "tailwindcss";
 
+@theme {
+  --color-violet-300: #6ee7b7;
+  --color-violet-400: #34d399;
+  --color-violet-500: #10b981;
+  --color-violet-600: #059669;
+  --color-cyan-300: #5eead4;
+  --color-cyan-400: #2dd4bf;
+  --color-cyan-500: #14b8a6;
+  --color-cyan-600: #0d9488;
+}
+
 /* ─── Design System Tokens ──────────────────────────────────────────────────── */
 :root {
   /* Colors */
-  --bg-base: #050810;
-  --bg-surface: #0d1117;
-  --bg-card: #111827;
-  --bg-card-hover: #161f2e;
-  --border: rgba(255, 255, 255, 0.06);
-  --border-subtle: rgba(255, 255, 255, 0.04);
+  --bg-base: #020a07;
+  --bg-surface: #04140f;
+  --bg-card: #061c16;
+  --bg-card-hover: #0a261e;
+  --border: rgba(16, 185, 129, 0.1);
+  --border-subtle: rgba(16, 185, 129, 0.05);
 
   /* Accents */
-  --accent-violet: #7c3aed;
-  --accent-violet-light: #8b5cf6;
-  --accent-indigo: #4f46e5;
-  --accent-cyan: #06b6d4;
-  --accent-cyan-light: #22d3ee;
+  --accent-violet: #10b981;
+  --accent-violet-light: #34d399;
+  --accent-indigo: #059669;
+  --accent-cyan: #14b8a6;
+  --accent-cyan-light: #2dd4bf;
   --accent-emerald: #10b981;
   --accent-emerald-light: #34d399;
   --accent-amber: #f59e0b;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #06b6d4 100%);
-  --gradient-violet: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
-  --gradient-subtle: linear-gradient(135deg, rgba(124, 58, 237, 0.15) 0%, rgba(6, 182, 212, 0.08) 100%);
+  --gradient-primary: linear-gradient(135deg, #10b981 0%, #059669 50%, #14b8a6 100%);
+  --gradient-violet: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(20, 184, 166, 0.08) 100%);
 
   /* Text */
   --text-primary: #f9fafb;
@@ -41,10 +52,10 @@
   --section-py: clamp(5rem, 10vw, 8rem);
 
   /* Shadows */
-  --shadow-glow-violet: 0 0 60px rgba(124, 58, 237, 0.25), 0 0 120px rgba(124, 58, 237, 0.1);
-  --shadow-glow-cyan: 0 0 40px rgba(6, 182, 212, 0.2), 0 0 80px rgba(6, 182, 212, 0.08);
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 4px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(124, 58, 237, 0.2);
+  --shadow-glow-violet: 0 0 60px rgba(16, 185, 129, 0.25), 0 0 120px rgba(16, 185, 129, 0.1);
+  --shadow-glow-cyan: 0 0 40px rgba(20, 184, 166, 0.2), 0 0 80px rgba(20, 184, 166, 0.08);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 4px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(16, 185, 129, 0.25);
 
   /* Border Radius */
   --radius-sm: 8px;
@@ -76,7 +87,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.4);
+  background: rgba(16, 185, 129, 0.4);
   color: #fff;
 }
 
@@ -88,11 +99,11 @@ body {
   background: var(--bg-base);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.4);
+  background: rgba(16, 185, 129, 0.4);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.7);
+  background: rgba(16, 185, 129, 0.7);
 }
 
 /* ─── Typography Utilities ───────────────────────────────────────────────────── */

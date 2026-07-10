@@ -72,14 +72,14 @@ export function Navbar() {
                 />
                 <defs>
                   <linearGradient id="xgrd" x1="2" y1="2" x2="12" y2="12">
-                    <stop stopColor="#8b5cf6" />
-                    <stop offset="1" stopColor="#06b6d4" />
+                    <stop stopColor="#10b981" />
+                    <stop offset="1" stopColor="#14b8a6" />
                   </linearGradient>
                 </defs>
               </svg>
             </div>
           </div>
-          <span className="font-display font-bold text-base tracking-tight text-white transition-all duration-[800ms] ease-in-out group-hover:tracking-[0.1em] group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]">
+          <span className="font-display font-bold text-base tracking-tight text-white transition-all duration-[800ms] ease-in-out group-hover:tracking-[0.1em] group-hover:text-teal-400 group-hover:drop-shadow-[0_0_12px_rgba(45,212,191,0.8)]">
             Xai
           </span>
         </motion.a>
@@ -126,12 +126,12 @@ export function Navbar() {
             href="#dashboard"
             className="flex items-center justify-center gap-2 text-sm font-semibold text-white rounded-full transition-all duration-300"
             style={{
-              background: "linear-gradient(135deg, #7c3aed, #4f46e5)",
+              background: "linear-gradient(135deg, #10b981, #059669)",
               padding: "12px 28px",
               minHeight: "46px",
-              boxShadow: "0 4px 14px rgba(124,58,237,0.4)"
+              boxShadow: "0 4px 14px rgba(16,185,129,0.4)"
             }}
-            whileHover={{ scale: 1.02, boxShadow: "0 6px 20px rgba(124,58,237,0.6)" }}
+            whileHover={{ scale: 1.02, boxShadow: "0 6px 20px rgba(16,185,129,0.6)" }}
             whileTap={{ scale: 0.98 }}
           >
             Get access

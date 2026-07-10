@@ -32,7 +32,7 @@ export function Button({
   const variants = {
     primary: "text-white",
     ghost: "text-[var(--text-secondary)] hover:text-white",
-    outline: "border border-[var(--border)] text-[var(--text-primary)] hover:border-[rgba(124,58,237,0.5)]",
+    outline: "border border-[var(--border)] text-[var(--text-primary)] hover:border-[rgba(16,185,129,0.5)]",
   };
 
   return (
@@ -42,8 +42,8 @@ export function Button({
         variant === "primary"
           ? {
               background: isHovered
-                ? "linear-gradient(135deg, #8b5cf6 0%, #4f46e5 50%, #06b6d4 100%)"
-                : "linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #0891b2 100%)",
+                ? "linear-gradient(135deg, #34d399 0%, #059669 50%, #2dd4bf 100%)"
+                : "linear-gradient(135deg, #10b981 0%, #059669 50%, #14b8a6 100%)",
             }
           : variant === "outline"
           ? { background: "rgba(17,24,39,0.8)" }
