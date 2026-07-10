@@ -425,11 +425,11 @@ export function InsightFlowSection() {
                 {stage.description}
               </p>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3 mt-2">
                 {stage.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 rounded-lg text-xs font-mono border"
+                    className="px-4 py-1.5 rounded-xl text-xs font-mono border"
                     style={{
                       background: c.bg,
                       borderColor: c.border,
