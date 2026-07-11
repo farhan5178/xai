@@ -22,31 +22,16 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center"
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center items-center transition-all duration-300 min-h-[80px] ${
+        scrolled
+          ? "bg-[#050810]/85 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent border-b border-transparent"
+      }`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
     >
-      <motion.nav
-        className="flex items-center justify-between w-full px-6 md:px-12 transition-all duration-300"
-        animate={
-          scrolled
-            ? {
-                backgroundColor: "rgba(5, 8, 16, 0.85)",
-                backdropFilter: "blur(12px)",
-                borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-                paddingTop: "24px",
-                paddingBottom: "24px",
-              }
-            : {
-                backgroundColor: "rgba(5, 8, 16, 0)",
-                backdropFilter: "blur(0px)",
-                borderBottom: "1px solid rgba(255, 255, 255, 0)",
-                paddingTop: "24px",
-                paddingBottom: "24px",
-              }
-        }
-      >
+      <nav className="section-container flex items-center justify-between w-full">
         {/* Logo */}
         <motion.a
           href="#"
@@ -127,8 +112,8 @@ export function Navbar() {
             className="flex items-center justify-center gap-2 text-sm font-semibold text-white rounded-full transition-all duration-300"
             style={{
               background: "linear-gradient(135deg, #10b981, #059669)",
-              padding: "12px 28px",
-              minHeight: "46px",
+              padding: "10px 24px",
+              minHeight: "42px",
               boxShadow: "0 4px 14px rgba(16,185,129,0.4)"
             }}
             whileHover={{ scale: 1.02, boxShadow: "0 6px 20px rgba(16,185,129,0.6)" }}
@@ -140,7 +125,7 @@ export function Navbar() {
             </svg>
           </motion.a>
         </div>
-      </motion.nav>
+      </nav>
     </motion.header>
   );
 }

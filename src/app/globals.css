@@ -48,7 +48,7 @@
   --font-mono: var(--font-mono), "Fira Code", monospace;
 
   /* Spacing */
-  --section-px: clamp(1.5rem, 5vw, 6rem);
+  --section-px: 2rem;
   --section-py: clamp(5rem, 10vw, 8rem);
 
   /* Shadows */
@@ -131,9 +131,11 @@ body {
 
 /* ─── Layout Utilities ───────────────────────────────────────────────────────── */
 .section-container {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--section-px);
+  padding-left: var(--section-px);
+  padding-right: var(--section-px);
 }
 
 .section-py {

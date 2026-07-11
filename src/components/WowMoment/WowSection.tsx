@@ -132,7 +132,7 @@ export function WowSection() {
 
         {/* Progress indicator */}
         <div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <div className="w-32 h-0.5 rounded-full bg-white/10 overflow-hidden">
             <motion.div
