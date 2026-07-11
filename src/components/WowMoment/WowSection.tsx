@@ -48,7 +48,7 @@ export function WowSection() {
       className="relative overflow-hidden"
       style={{
         background: "var(--bg-base)",
-        minHeight: "200vh",
+        minHeight: "100vh",
       }}
     >
       {/* Ambient glows */}
@@ -101,25 +101,26 @@ export function WowSection() {
         </motion.div>
 
         {/* 3D Canvas */}
-        <div className="relative w-full" style={{ height: "55vh" }}>
+        <div className="relative w-full" style={{ height: "48vh" }}>
           <DataSphere explodeProgress={explodeProgress} />
         </div>
 
         {/* Cluster legend — fades in when exploded */}
         <motion.div
-          className="relative z-10 flex flex-wrap justify-center gap-2 px-8 mt-4 max-w-2xl"
+          className="relative z-10 flex flex-wrap justify-center gap-2 px-8 mt-2 max-w-2xl"
           animate={{ opacity: explodeProgress > 0.5 ? 1 : 0, y: explodeProgress > 0.5 ? 0 : 10 }}
           transition={{ duration: 0.5 }}
         >
           {clusters.map((c) => (
             <motion.div
               key={c.label}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full border"
+              className="flex items-center gap-2 rounded-full border"
               style={{
-                background: c.color + "12",
-                borderColor: c.color + "30",
+                padding: "8px 16px",
+                background: c.color + "15",
+                borderColor: c.color + "40",
               }}
-              whileHover={{ scale: 1.05, borderColor: c.color + "60" }}
+              whileHover={{ scale: 1.05, borderColor: c.color + "80", background: c.color + "25" }}
             >
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: c.color }} />
               <span className="text-xs font-mono" style={{ color: c.color }}>
@@ -131,7 +132,7 @@ export function WowSection() {
 
         {/* Progress indicator */}
         <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <div className="w-32 h-0.5 rounded-full bg-white/10 overflow-hidden">
             <motion.div
