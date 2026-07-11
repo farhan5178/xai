@@ -1,8 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 
-const footerLinks = {
+
+type FooterLink = {
+  label: string;
+  href: string;
+  badge?: string;
+};
+
+const footerLinks: Record<string, FooterLink[]> = {
   Company: [
     { label: "About Us", href: "#" },
     { label: "Careers", href: "#", badge: "Hiring!" },
