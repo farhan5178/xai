@@ -101,10 +101,10 @@ export function DashboardSection() {
           </div>
 
           {}
-          <div className="flex" style={{ minHeight: 560 }}>
+          <div className="dashboard-layout flex flex-col lg:flex-row" style={{ minHeight: 560 }}>
             {}
             <motion.aside
-              className="flex flex-col border-r w-52 flex-shrink-0"
+              className="dashboard-sidebar hidden lg:flex flex-col border-r w-52 flex-shrink-0"
               style={{
                 borderColor: "var(--border)",
                 background: "rgba(13,17,23,0.5)",
@@ -228,7 +228,7 @@ export function DashboardSection() {
               </div>
 
               {}
-              <div className="flex-1 overflow-auto" style={{ padding: "24px" }}>
+              <div className="flex-1 overflow-auto p-4 sm:p-6">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeTab}
@@ -243,16 +243,16 @@ export function DashboardSection() {
 
                     {}
                     <div
-                      className="rounded-xl border"
-                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}
+                      className="rounded-xl border p-4 sm:p-6"
+                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)" }}
                     >
                       <InsightChart />
                     </div>
 
                     {}
                     <div
-                      className="rounded-xl border"
-                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}
+                      className="rounded-xl border p-4 sm:p-6"
+                      style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)" }}
                     >
                       <DataTable />
                     </div>

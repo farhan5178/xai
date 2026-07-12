@@ -45,7 +45,7 @@ export function DataTable() {
       </div>
 
       {}
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2.5">
         {sorted.map((row, i) => {
           const pc = priorityConfig[row.priority as keyof typeof priorityConfig];
           const isSelected = selected === row.id;
@@ -53,10 +53,10 @@ export function DataTable() {
           return (
             <motion.div
               key={row.id}
-              className="rounded-xl border cursor-pointer overflow-hidden"
+              className="rounded-xl border cursor-pointer overflow-hidden transition-all duration-300"
               style={{
-                background: isSelected ? "rgba(124,58,237,0.08)" : "transparent",
-                borderColor: isSelected ? "rgba(124,58,237,0.3)" : "rgba(255,255,255,0.04)",
+                background: isSelected ? "rgba(124,58,237,0.06)" : "rgba(255,255,255,0.01)",
+                borderColor: isSelected ? "rgba(124,58,237,0.25)" : "rgba(255,255,255,0.03)",
               }}
               onClick={() => setSelected(isSelected ? null : row.id)}
               whileHover={{
@@ -67,19 +67,16 @@ export function DataTable() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.05 }}
             >
-              <div className="flex items-center gap-3" style={{ padding: "10px 12px" }}>
-                {}
-                <span className="font-mono text-[10px] text-[var(--text-muted)] w-16 flex-shrink-0">
+              <div className="flex items-center gap-3.5" style={{ padding: "12px 16px" }}>
+                <span className="hidden sm:inline-block font-mono text-[10px] text-[var(--text-muted)] w-12 md:w-16 flex-shrink-0">
                   {row.id}
                 </span>
 
-                {}
-                <span className="text-xs text-[var(--text-secondary)] flex-1 truncate group-hover:text-white">
+                <span className="text-xs font-medium text-[var(--text-secondary)] flex-1 truncate group-hover:text-white">
                   {row.insight}
                 </span>
 
-                {}
-                <div className="flex items-center gap-1.5 flex-shrink-0">
+                <div className="hidden md:flex items-center gap-1.5 flex-shrink-0">
                   <div className="w-16 h-1 rounded-full bg-white/5 overflow-hidden">
                     <motion.div
                       className="h-full rounded-full"
@@ -94,7 +91,6 @@ export function DataTable() {
                   </span>
                 </div>
 
-                {}
                 <span
                   className="rounded-md text-[10px] font-mono font-semibold flex-shrink-0 border"
                   style={{
@@ -107,10 +103,23 @@ export function DataTable() {
                   {row.priority}
                 </span>
 
-                {}
                 <span className="font-mono text-[10px] text-[var(--text-muted)] flex-shrink-0">
                   {row.time}
                 </span>
+
+                <motion.svg
+                  animate={{ rotate: isSelected ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-3.5 h-3.5 text-[var(--text-muted)] flex-shrink-0"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </motion.svg>
               </div>
 
               {}
@@ -127,7 +136,7 @@ export function DataTable() {
                       className="border-t text-xs text-[var(--text-secondary)]"
                       style={{ padding: "12px", borderColor: "rgba(124,58,237,0.2)" }}
                     >
-                      <div className="flex items-center gap-6">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                         <div>
                           <span className="text-[var(--text-tertiary)] font-mono text-[10px] uppercase tracking-wider">Source</span>
                           <p className="text-white mt-0.5">{row.source}</p>

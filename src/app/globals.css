@@ -313,3 +313,13 @@ body {
     --section-py: 4rem;
   }
 }
+
+@media (max-width: 1023px) {
+  .dashboard-layout {
+    flex-direction: column !important;
+  }
+  .dashboard-sidebar {
+    display: none !important;
+  }
+}
+

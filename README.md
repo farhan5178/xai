@@ -161,6 +161,6 @@ src/
 
 ## 🔗 Links
 
-- **Live Demo**: [Deploy to Vercel](#)
-- **Figma Design**: [View Design File](#)
-- **Video Walkthrough**: [Google Drive](#)
+- **Live Demo**: [https://xai-lemon.vercel.app/](#)
+- **Figma Design**: [https://www.figma.com/design/B4apNz2sWBbggY76YaQ5fS/Xai?node-id=0-1&p=f](#)
+- **Video Walkthrough**: [https://drive.google.com/file/d/1RmKpk_lmzEz2EQ4v4F0pMjDDGPkqahcv/view?usp=drive_link](#)
