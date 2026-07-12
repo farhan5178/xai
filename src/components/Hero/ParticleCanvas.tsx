@@ -12,7 +12,7 @@ function ParticleMesh({ scrollProgress }: { scrollProgress: number }) {
   const mouse = useMousePosition();
   const { size } = useThree();
 
-  // Generate random positions for "raw data" state
+  
   const { positions, targets, colors } = useMemo(() => {
     const pos = new Float32Array(PARTICLE_COUNT * 3);
     const tgt = new Float32Array(PARTICLE_COUNT * 3);
@@ -25,24 +25,24 @@ function ParticleMesh({ scrollProgress }: { scrollProgress: number }) {
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const i3 = i * 3;
 
-      // Random scatter (raw data)
+      
       pos[i3] = (Math.random() - 0.5) * spread * 2;
       pos[i3 + 1] = (Math.random() - 0.5) * spread * 2;
       pos[i3 + 2] = (Math.random() - 0.5) * spread;
 
-      // Grid organization (intelligence)
+      
       const gx = (i % gridSize) - gridSize / 2;
       const gy = Math.floor(i / gridSize) - gridSize / 2;
       tgt[i3] = gx * gridSpacing;
       tgt[i3 + 1] = gy * gridSpacing;
       tgt[i3 + 2] = 0;
 
-      // Color — mix emerald and teal
+      
       const t = Math.random();
       if (t < 0.5) {
-        col[i3] = 0.06; col[i3 + 1] = 0.73; col[i3 + 2] = 0.51; // emerald
+        col[i3] = 0.06; col[i3 + 1] = 0.73; col[i3 + 2] = 0.51; 
       } else {
-        col[i3] = 0.08; col[i3 + 1] = 0.72; col[i3 + 2] = 0.65; // teal
+        col[i3] = 0.08; col[i3 + 1] = 0.72; col[i3 + 2] = 0.65; 
       }
     }
     return { positions: pos, targets: tgt, colors: col };
@@ -85,7 +85,7 @@ function ParticleMesh({ scrollProgress }: { scrollProgress: number }) {
 
     posAttr.needsUpdate = true;
 
-    // Rotate slowly when not fully organized
+    
     meshRef.current.rotation.y = time * 0.04 * (1 - progress * 0.8);
     meshRef.current.rotation.x = time * 0.02 * (1 - progress * 0.8);
   });
@@ -107,7 +107,7 @@ function ParticleMesh({ scrollProgress }: { scrollProgress: number }) {
   return <points ref={meshRef} geometry={geometry} material={material} />;
 }
 
-// Connection lines overlay
+
 function ConnectionLines({ scrollProgress }: { scrollProgress: number }) {
   const groupRef = useRef<THREE.Group>(null!);
 

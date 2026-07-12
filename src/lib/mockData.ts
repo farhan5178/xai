@@ -1,5 +1,3 @@
-// Mock data for Xai Intelligence Workspace
-
 export const kpiData = [
   {
     id: "data-points",

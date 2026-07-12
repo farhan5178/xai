@@ -32,10 +32,10 @@ export function DashboardSection() {
       className="relative section-py overflow-hidden"
       style={{ background: "var(--bg-surface)" }}
     >
-      {/* Subtle top border */}
+      {}
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "var(--border)" }} />
 
-      {/* Background glow */}
+      {}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
         style={{
@@ -44,7 +44,7 @@ export function DashboardSection() {
       />
 
       <div className="section-container">
-        {/* Header */}
+        {}
         <div className="w-full flex justify-center">
           <motion.div
             variants={staggerContainer}
@@ -72,7 +72,7 @@ export function DashboardSection() {
           </motion.div>
         </div>
 
-        {/* Dashboard shell */}
+        {}
         <motion.div
           className="rounded-2xl border overflow-hidden"
           style={{
@@ -85,7 +85,7 @@ export function DashboardSection() {
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
           transition={{ duration: 0.7, ease: [0, 0, 0.2, 1], delay: 0.2 }}
         >
-          {/* Top bar */}
+          {}
           <div
             className="flex items-center gap-2 border-b"
             style={{ borderColor: "var(--border)", background: "rgba(13,17,23,0.7)", padding: "12px 20px" }}
@@ -100,9 +100,9 @@ export function DashboardSection() {
             </div>
           </div>
 
-          {/* App layout */}
+          {}
           <div className="flex" style={{ minHeight: 560 }}>
-            {/* Sidebar */}
+            {}
             <motion.aside
               className="flex flex-col border-r w-52 flex-shrink-0"
               style={{
@@ -113,7 +113,7 @@ export function DashboardSection() {
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              {/* Workspace picker */}
+              {}
               <div className="border-b" style={{ borderColor: "var(--border)", padding: "16px" }}>
                 <div className="flex items-center gap-2 rounded-lg bg-white/[0.04] cursor-pointer hover:bg-white/[0.06] transition-colors" style={{ padding: "8px" }}>
                   <div
@@ -134,7 +134,7 @@ export function DashboardSection() {
                 </div>
               </div>
 
-              {/* Nav items */}
+              {}
               <nav className="flex flex-col flex-1" style={{ padding: "12px", gap: "4px" }}>
                 {navItems.map((item, i) => {
                   const isActive = activeNav === item.id;
@@ -182,7 +182,7 @@ export function DashboardSection() {
                 })}
               </nav>
 
-              {/* Bottom user */}
+              {}
               <div style={{ padding: "0 12px 16px 12px" }}>
                 <div className="flex items-center gap-2 rounded-lg" style={{ padding: "8px" }}>
                   <img src="https://ui-avatars.com/api/?name=Farhan&background=0D8ABC&color=fff" alt="Farhan" className="w-6 h-6 rounded-full object-cover flex-shrink-0" />
@@ -194,9 +194,9 @@ export function DashboardSection() {
               </div>
             </motion.aside>
 
-            {/* Main panel */}
+            {}
             <main className="flex-1 flex flex-col overflow-hidden">
-              {/* Tab bar */}
+              {}
               <div
                 className="flex items-center flex-wrap border-b overflow-x-auto hide-scrollbar"
                 style={{ borderColor: "var(--border)", padding: "12px 24px", gap: "24px" }}
@@ -220,14 +220,14 @@ export function DashboardSection() {
                   );
                 })}
 
-                {/* Live indicator */}
+                {}
                 <div className="ml-auto flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="font-mono text-[10px] text-[var(--text-tertiary)]">Live</span>
                 </div>
               </div>
 
-              {/* Content */}
+              {}
               <div className="flex-1 overflow-auto" style={{ padding: "24px" }}>
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -238,10 +238,10 @@ export function DashboardSection() {
                     transition={{ duration: 0.2 }}
                     className="flex flex-col gap-8"
                   >
-                    {/* KPI Cards */}
+                    {}
                     <KPICards isVisible={isInView} />
 
-                    {/* Chart */}
+                    {}
                     <div
                       className="rounded-xl border"
                       style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}
@@ -249,7 +249,7 @@ export function DashboardSection() {
                       <InsightChart />
                     </div>
 
-                    {/* Table */}
+                    {}
                     <div
                       className="rounded-xl border"
                       style={{ background: "rgba(13,17,23,0.5)", borderColor: "var(--border)", padding: "24px" }}

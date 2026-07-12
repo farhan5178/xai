@@ -96,7 +96,7 @@ function DataCluster({
         />
       </points>
 
-      {/* Core glow sphere */}
+      {}
       <mesh
         onPointerOver={() => onHover(index)}
         onPointerOut={() => onHover(null)}
@@ -109,7 +109,7 @@ function DataCluster({
         />
       </mesh>
 
-      {/* Label - only visible when exploded */}
+      {}
       {explodeProgress > 0.3 && (
         <Float speed={2} floatIntensity={0.2}>
           <Text
@@ -128,7 +128,7 @@ function DataCluster({
   );
 }
 
-// Central orb
+
 function CentralOrb({ explodeProgress }: { explodeProgress: number }) {
   const meshRef = useRef<THREE.Mesh>(null!);
 
@@ -155,7 +155,7 @@ function CentralOrb({ explodeProgress }: { explodeProgress: number }) {
   );
 }
 
-// Wireframe cage
+
 function WireframeCage({ explodeProgress }: { explodeProgress: number }) {
   const meshRef = useRef<THREE.Mesh>(null!);
 
@@ -180,7 +180,7 @@ function WireframeCage({ explodeProgress }: { explodeProgress: number }) {
   );
 }
 
-// Mouse-reactive camera rig
+
 function CameraRig({ mouseRef }: { mouseRef: React.MutableRefObject<{ normalX: number; normalY: number }> }) {
   useFrame(({ camera }) => {
     camera.position.x += (mouseRef.current.normalX * 1.5 - camera.position.x) * 0.05;

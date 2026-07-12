@@ -22,7 +22,7 @@ export function DataTable() {
 
   return (
     <div className="flex flex-col gap-3">
-      {/* Table header */}
+      {}
       <div className="flex items-center justify-between">
         <h4 className="font-display font-semibold text-white text-sm">Latest Insights</h4>
         <div className="flex items-center gap-2">
@@ -44,7 +44,7 @@ export function DataTable() {
         </div>
       </div>
 
-      {/* Rows */}
+      {}
       <div className="flex flex-col gap-1">
         {sorted.map((row, i) => {
           const pc = priorityConfig[row.priority as keyof typeof priorityConfig];
@@ -68,17 +68,17 @@ export function DataTable() {
               transition={{ delay: i * 0.05 }}
             >
               <div className="flex items-center gap-3" style={{ padding: "10px 12px" }}>
-                {/* ID */}
+                {}
                 <span className="font-mono text-[10px] text-[var(--text-muted)] w-16 flex-shrink-0">
                   {row.id}
                 </span>
 
-                {/* Insight text */}
+                {}
                 <span className="text-xs text-[var(--text-secondary)] flex-1 truncate group-hover:text-white">
                   {row.insight}
                 </span>
 
-                {/* Confidence */}
+                {}
                 <div className="flex items-center gap-1.5 flex-shrink-0">
                   <div className="w-16 h-1 rounded-full bg-white/5 overflow-hidden">
                     <motion.div
@@ -94,7 +94,7 @@ export function DataTable() {
                   </span>
                 </div>
 
-                {/* Priority badge */}
+                {}
                 <span
                   className="rounded-md text-[10px] font-mono font-semibold flex-shrink-0 border"
                   style={{
@@ -107,13 +107,13 @@ export function DataTable() {
                   {row.priority}
                 </span>
 
-                {/* Time */}
+                {}
                 <span className="font-mono text-[10px] text-[var(--text-muted)] flex-shrink-0">
                   {row.time}
                 </span>
               </div>
 
-              {/* Expanded detail */}
+              {}
               <AnimatePresence>
                 {isSelected && (
                   <motion.div

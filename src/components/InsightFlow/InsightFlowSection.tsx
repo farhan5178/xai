@@ -5,11 +5,11 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { insightFlowStages } from "@/lib/mockData";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
-// Animated SVG for each stage
+
 function IngestVisual() {
   return (
     <svg viewBox="0 0 320 200" fill="none" className="w-full max-w-sm">
-      {/* Data stream lines */}
+      {}
       {[0, 1, 2, 3, 4].map((i) => (
         <g key={i}>
           <motion.line
@@ -27,7 +27,7 @@ function IngestVisual() {
         </g>
       ))}
 
-      {/* Central collector */}
+      {}
       <motion.foreignObject
         x="60" y="60" width="200" height="80"
         initial={{ opacity: 0, y: 10 }}
@@ -51,7 +51,7 @@ function IngestVisual() {
         </div>
       </motion.foreignObject>
 
-      {/* Connecting arrows from lines to rect */}
+      {}
       {[0, 1, 2, 3, 4].map((i) => (
         <motion.path
           key={i}
@@ -66,7 +66,7 @@ function IngestVisual() {
         />
       ))}
 
-      {/* Source labels */}
+      {}
       {[
         { x: 8, y: 30, label: "API" },
         { x: 18, y: 55, label: "SQL" },
@@ -89,7 +89,7 @@ function IngestVisual() {
         </motion.text>
       ))}
 
-      {/* Output nodes */}
+      {}
       {[100, 140, 180, 220].map((x, i) => (
         <motion.circle
           key={i}
@@ -181,7 +181,7 @@ function AnalyzeVisual() {
         />
       ))}
 
-      {/* AI label */}
+      {}
       <motion.text
         x="160"
         y="104"
@@ -197,7 +197,7 @@ function AnalyzeVisual() {
         AI
       </motion.text>
 
-      {/* Scanning ring */}
+      {}
       <motion.circle
         cx="160"
         cy="100"
@@ -238,7 +238,7 @@ function InsightVisual() {
           <text x="58" y={card.y + 35} fill="#6b7280" fontSize="8" fontFamily="monospace">
             Confidence: {card.conf}%
           </text>
-          {/* Confidence bar */}
+          {}
           <rect x="200" y={card.y + 22} width="64" height="4" rx="2" fill="rgba(255,255,255,0.06)" />
           <motion.rect
             x="200"
@@ -264,7 +264,7 @@ export function InsightFlowSection() {
   const [activeStage, setActiveStage] = useState(0);
   const isInView = useInView(sectionRef, { once: false, margin: "-20% 0px" });
 
-  // Auto-cycle stages
+  
   useEffect(() => {
     if (!isInView) return;
     const interval = setInterval(() => {
@@ -310,10 +310,10 @@ export function InsightFlowSection() {
       className="relative pb-[var(--section-py)] overflow-hidden"
       style={{ background: "var(--bg-base)", paddingTop: "60px" }}
     >
-      {/* Background grid */}
+      {}
       <div className="absolute inset-0 dot-grid opacity-50" />
 
-      {/* Glow behind active */}
+      {}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none rounded-full"
         animate={{ background: `radial-gradient(circle, ${c.glow} 0%, transparent 70%)` }}
@@ -321,7 +321,7 @@ export function InsightFlowSection() {
       />
 
       <div className="section-container relative z-10">
-        {/* Header */}
+        {}
         <div className="w-full flex justify-center">
           <motion.div
             className="flex flex-col items-center text-center max-w-3xl w-full"
@@ -350,7 +350,7 @@ export function InsightFlowSection() {
           </motion.div>
         </div>
 
-        {/* Stage selector tabs */}
+        {}
         <div className="w-full flex justify-center" style={{ marginBottom: "64px" }}>
           <div className="flex flex-wrap justify-center gap-4">
             {insightFlowStages.map((s, i) => {
@@ -370,7 +370,7 @@ export function InsightFlowSection() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {/* Animated Pill Background */}
+                  {}
                   {isActive && (
                     <motion.div
                       layoutId="active-tab-bg"
@@ -383,7 +383,7 @@ export function InsightFlowSection() {
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
-                  {/* Content */}
+                  {}
                   <span className="relative z-10 flex items-center justify-center">
                     <span 
                       className="transition-colors duration-300"
@@ -405,9 +405,9 @@ export function InsightFlowSection() {
           </div>
         </div>
 
-        {/* Main content panel */}
+        {}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[420px]">
-          {/* Left: Text */}
+          {}
           <AnimatePresence mode="wait">
             <motion.div
               key={stage.id}
@@ -459,7 +459,7 @@ export function InsightFlowSection() {
                 ))}
               </div>
 
-              {/* Progress bar to next stage */}
+              {}
               <div className="flex items-center gap-3 mt-8">
                 {insightFlowStages.map((_, i) => (
                   <motion.div
@@ -478,7 +478,7 @@ export function InsightFlowSection() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Right: Visual */}
+          {}
           <AnimatePresence mode="wait">
             <motion.div
               key={stage.id + "-visual"}

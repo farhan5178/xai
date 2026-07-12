@@ -7,10 +7,9 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easeOutExpo
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
@@ -20,7 +19,6 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     lenisRef.current = lenis;
 
-    // Use requestAnimationFrame to update Lenis on every frame
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -28,7 +26,6 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     requestAnimationFrame(raf);
 
-    // Sync Lenis scroll with scroll restoration and window hash shifts
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {

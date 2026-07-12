@@ -51,7 +51,7 @@ export function WowSection() {
         minHeight: "100vh",
       }}
     >
-      {/* Ambient glows */}
+      {}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
         style={{
@@ -60,10 +60,10 @@ export function WowSection() {
         }}
       />
 
-      {/* Sticky container */}
+      {}
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
 
-        {/* Header text */}
+        {}
         <motion.div
           className="relative z-10 text-center mb-8 px-4"
           variants={staggerContainer}
@@ -84,7 +84,7 @@ export function WowSection() {
             <span className="text-gradient">organized</span>
           </motion.h2>
 
-          {/* Dynamic phase label */}
+          {}
           <motion.div
             className="mt-3 h-6 flex items-center justify-center"
             key={phase}
@@ -100,12 +100,12 @@ export function WowSection() {
           </motion.div>
         </motion.div>
 
-        {/* 3D Canvas */}
+        {}
         <div className="relative w-full" style={{ height: "48vh" }}>
           <DataSphere explodeProgress={explodeProgress} />
         </div>
 
-        {/* Cluster legend — fades in when exploded */}
+        {}
         <motion.div
           className="relative z-10 flex flex-wrap justify-center gap-2 px-8 mt-2 max-w-2xl"
           animate={{ opacity: explodeProgress > 0.5 ? 1 : 0, y: explodeProgress > 0.5 ? 0 : 10 }}
@@ -130,7 +130,7 @@ export function WowSection() {
           ))}
         </motion.div>
 
-        {/* Progress indicator */}
+        {}
         <div
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >

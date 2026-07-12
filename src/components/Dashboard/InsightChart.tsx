@@ -19,7 +19,6 @@ const metrics = [
   { key: "processed", label: "Processed", color: "#10b981" },
 ] as const;
 
-// Custom tooltip
 function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload?.length) return null;
   return (
@@ -53,7 +52,6 @@ export function InsightChart() {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h4 className="font-display font-semibold text-white text-sm">Activity Timeline</h4>
@@ -88,7 +86,6 @@ export function InsightChart() {
         </div>
       </div>
 
-      {/* Chart */}
       <div style={{ height: 160 }}>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData} margin={{ top: 4, right: 4, bottom: 0, left: -24 }}>

@@ -50,10 +50,10 @@ export function HeroSection() {
       className="relative flex items-center justify-center overflow-hidden"
       style={{ background: "var(--bg-base)", minHeight: "100vh", paddingTop: "120px", paddingBottom: "60px" }}
     >
-      {/* Particle canvas - only mount when section is visible to save GPU context */}
+      {}
       {isInView && <ParticleCanvas scrollProgress={scrollProg} />}
 
-      {/* Background radial glows */}
+      {}
       <div
         className="absolute inset-0 pointer-events-none z-[1]"
         style={{
@@ -69,7 +69,7 @@ export function HeroSection() {
         }}
       />
 
-      {/* Hero content */}
+      {}
       <motion.div
         className="relative z-10 text-center section-container"
         style={{ y: heroY, opacity: heroOpacity }}
@@ -80,7 +80,7 @@ export function HeroSection() {
           animate="visible"
           className="flex flex-col items-center gap-6"
         >
-          {/* Pill badge */}
+          {}
           <motion.div variants={fadeIn}>
             <motion.div 
               className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.1)] relative overflow-hidden group cursor-default"
@@ -96,7 +96,7 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Main headline */}
+          {}
           <motion.h1
             variants={fadeUp}
             className="font-display font-bold leading-[1.05] tracking-tight max-w-4xl"
@@ -122,7 +122,7 @@ export function HeroSection() {
             </span>
           </motion.h1>
 
-          {/* Subtext */}
+          {}
           <motion.p
             variants={fadeUp}
             className="text-[var(--text-secondary)] max-w-xl text-lg leading-relaxed"
@@ -131,7 +131,7 @@ export function HeroSection() {
             and with the confidence of a senior analyst.
           </motion.p>
 
-          {/* CTA buttons */}
+          {}
           <motion.div
             variants={fadeUp}
             className="flex items-center gap-5 mt-4 flex-wrap justify-center"
@@ -176,7 +176,7 @@ export function HeroSection() {
             </motion.a>
           </motion.div>
 
-          {/* Stat bar */}
+          {}
           <motion.div
             variants={fadeIn}
             className="flex items-center gap-8 mt-12 pt-8 border-t flex-wrap justify-center mb-24"
@@ -196,7 +196,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {}
       <motion.div style={{ opacity: scrollTextOpacity }} className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
         <motion.div
           className="flex flex-col items-center gap-3"

@@ -45,12 +45,11 @@ function KPICard({
       ? (count / 1_000_000).toFixed(2) + "M"
       : count.toLocaleString();
 
-  // Color-coded spotlight based on item type
   const glowColor = item.id === "accuracy" 
-    ? "rgba(20, 184, 166, 0.12)" // teal
+    ? "rgba(20, 184, 166, 0.12)"
     : item.id === "latency"
-    ? "rgba(52, 211, 153, 0.12)" // emerald light
-    : "rgba(16, 185, 129, 0.12)"; // emerald base
+    ? "rgba(52, 211, 153, 0.12)"
+    : "rgba(16, 185, 129, 0.12)";
 
   return (
     <motion.div

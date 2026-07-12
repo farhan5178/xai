@@ -11,7 +11,7 @@ interface SpotlightCardProps {
 export function SpotlightCard({
   children,
   className = "",
-  glowColor = "rgba(16, 185, 129, 0.15)", // Default emerald glow
+  glowColor = "rgba(16, 185, 129, 0.15)",
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -31,11 +31,9 @@ export function SpotlightCard({
       onMouseMove={handleMouseMove}
       className={`relative overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--bg-card)] group transition-all duration-300 ${className}`}
       style={{
-        // Define local custom CSS style for the radial glow
         backgroundImage: `radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), ${glowColor}, transparent 40%)`,
       }}
     >
-      {/* Spotlight border overlay */}
       <div
         className="absolute inset-0 pointer-events-none rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
@@ -47,7 +45,6 @@ export function SpotlightCard({
         }}
       />
       
-      {/* Content wrapper */}
       <div className="relative z-10 w-full h-full flex flex-col justify-center" style={{ padding: "24px" }}>
         {children}
       </div>

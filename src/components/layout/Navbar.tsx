@@ -32,7 +32,7 @@ export function Navbar() {
       transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
     >
       <nav className="section-container flex items-center justify-between w-full">
-        {/* Logo */}
+        {}
         <motion.a
           href="#"
           className="flex items-center gap-2.5 group relative z-10"
@@ -69,7 +69,7 @@ export function Navbar() {
           </span>
         </motion.a>
 
-        {/* Nav links - Perfectly centered with pill hover */}
+        {}
         <div 
           className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center"
           style={{ gap: "32px" }}
@@ -98,7 +98,7 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
+        {}
         <div className="flex items-center relative z-10" style={{ gap: "24px" }}>
           <motion.a
             href="#"

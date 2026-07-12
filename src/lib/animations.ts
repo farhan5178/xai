@@ -1,6 +1,5 @@
 import { Variants } from "framer-motion";
 
-// ─── Shared Easing Curves ─────────────────────────────────────────────────────
 export const ease = {
   smooth: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
   spring: { type: "spring", stiffness: 100, damping: 20 },
@@ -9,7 +8,6 @@ export const ease = {
   out: [0.0, 0.0, 0.2, 1] as [number, number, number, number],
 };
 
-// ─── Entrance Variants ────────────────────────────────────────────────────────
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: {
@@ -54,7 +52,6 @@ export const scaleIn: Variants = {
   },
 };
 
-// ─── Stagger Container ────────────────────────────────────────────────────────
 export const staggerContainer: Variants = {
   hidden: {},
   visible: {
@@ -74,7 +71,6 @@ export const staggerContainerFast: Variants = {
   },
 };
 
-// ─── Character-level text animation ──────────────────────────────────────────
 export const charReveal: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -84,7 +80,6 @@ export const charReveal: Variants = {
   },
 };
 
-// ─── Card hover ───────────────────────────────────────────────────────────────
 export const cardHover = {
   rest: { scale: 1, y: 0 },
   hover: {
